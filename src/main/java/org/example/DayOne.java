@@ -1,15 +1,11 @@
 package org.example;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class DayOne {
 
     static int DayOne() {
-        List<String> inputs = ReadFile("DayOneInput.txt");
+        List<String> inputs = Utils.GetStringListFromFile("DayOneInput.txt");
         int result = 0;
         for (String word : inputs) {
             int value = DayOneGetIntFromString(word);
@@ -35,24 +31,6 @@ public class DayOne {
 
     }
 
-    public static List<String> ReadFile(String fileName) {
-        List<String> stringList = new ArrayList<>();
-        String filepath = "src/main/resources/" + fileName;
-        System.out.println(filepath);
-        try {
-            File thisFile = new File(filepath);
-            Scanner myReader = new Scanner(thisFile);
-            while (myReader.hasNextLine()) {
-                String data = myReader.nextLine();
-                stringList.add(data);
-            }
-            myReader.close();
-        } catch (FileNotFoundException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
-        }
-        return stringList;
-    }
     public static int getNumberAtPosition(String fullString, int index) {
         if (Character.isDigit(fullString.charAt(index))) {
             String digit = String.valueOf(fullString.charAt(index));
