@@ -12,7 +12,7 @@ public class Utils {
     public static List<String> GetStringListFromFile(String fileName) {
         List<String> stringList = new ArrayList<>();
         String filepath = "src/main/resources/" + fileName;
-        System.out.println(filepath);
+//        System.out.println(filepath);
         try {
             File thisFile = new File(filepath);
             Scanner myReader = new Scanner(thisFile);
